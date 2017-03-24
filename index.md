@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
+1.属性和域
+　　在现实世界中，一个事物常常取若干特性来描述，这些特性成为属性（Attribute）。每个属性的取值范围对应一个值的集合，成为该属性的域（domain）。一般在关系数据模型中，限制所有的域都是原子数据（atomic data)。例如，整数、字符串是原子数据，而集合、记录、数组是非原子数据。关系数据模型的这种限制称为第一范式（First Normal Form，1NF）条件。
 
-You can use the [editor on GitHub](https://github.com/Qingfengfumian/qingfeng.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+2.主要术语
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+目或度(Degree)：属性个数n是关系的目或度。
+候选码(Candidate Key)：若关系中某一属性（或属性组）的值能唯一地标识一个元组，则称该属性（属性组）为候选码。
+主码(Primary Key)：若一个关系能多个候选码，则选定其中一个为主码。
+主属性(Key attribute)：包含在任何候选码中的属性称为主属性。
+非码属性(Non-Key attribute)：不包含在任何候选码中的属性称为非码属性。
+外码(Foreign Key)：如果关系模式R中的属性（属性组）不是该关系的码，但它是其他关系的码，那么该属性（属性组）对关系模式R而言是外码。例如，客户与货款之间的借贷联系c-l(c-id, loan-no)，属性c-id是客户关系的码，所以c-id是外码；属性loan-no是贷款关系中的码，所以loan-no也是外码。
+全码(All-Key)：关系模型的所有属性组是这个关系模型的候选码，称为全码。
+　　例如，关系模式R(T,C,S)，属性T表示教师，属性C表示课程，属性S表示学生。假设一个教师可以讲授多门课程，某门课程可以由多个教师讲授，学生可以听不同教师讲授的不同的课程，那么，要想区分关系中的每一个元组，这个关系模式R的码应为全属性T,C和S，即All-Key。
 
-### Markdown
+3.关系的性质
+一个基本关系具有以下5条性质。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+分量必须取原子值，每个分量必须是不可再分的数据项。
+列是同质的，每列中的分量必须是同一类型的数据，来自同一个域。
+属性不能重名。
+行列的顺序无关。
+任何两个元组不能完全相同，这是由主码约束来保证的。但是有些数据库若用户没有定义完整性约束条件，允许有两行以上的相同的元组。
+4.关系的三种类型
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Qingfengfumian/qingfeng.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+基本关系（通常又称为基本表或基表）。是实际存在的表，它是实际存储数据的逻辑表示。
+查询表。查询结果对应的表。
+视图表。是由基本表或其他视图表导出的表。由于它本身不独立存储在数据库中，数据库中只存放它的定义，所以常称为虚表。
